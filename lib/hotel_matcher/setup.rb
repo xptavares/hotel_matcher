@@ -5,9 +5,9 @@ module HotelMatcher
 
     def initialize
       @providers = []
-      providers << HotelMatcher::Provider.new(1, 'tripadvisor', 'tripadvisor.com')
-      providers << HotelMatcher::Provider.new(2, 'booking', 'booking.com')
-      providers << HotelMatcher::Provider.new(3, 'holidaycheck', 'holidaycheck.de')
+      providers << HotelMatcher::Provider::Booking.new(1)
+      providers << HotelMatcher::Provider::Holidaycheck.new(2)
+      providers << HotelMatcher::Provider::Tripadvisor.new(3)
     end
   end
 end

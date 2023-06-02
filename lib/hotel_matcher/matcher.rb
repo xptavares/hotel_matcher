@@ -9,7 +9,13 @@ module HotelMatcher
     end
 
     def run
-      puts setup.providers
+      results = setup.providers.map do |provider|
+        provider.run(hotel_name)
+      end
+
+      puts results
+
+      results
     end
   end
 end
