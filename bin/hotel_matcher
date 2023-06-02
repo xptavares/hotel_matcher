@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "hotel_matcher"
+
+puts ARGV.first
+
+HotelMatcher::Matcher.new(ARGV.first).run
