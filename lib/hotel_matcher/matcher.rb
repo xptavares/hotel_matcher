@@ -15,6 +15,8 @@ module HotelMatcher
 
       puts results
 
+      HotelMatcher.configuration.after_run&.call(results)
+
       results
     end
   end

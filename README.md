@@ -1,24 +1,29 @@
 # HotelMatcher
 
-TODO: Delete this and the text below, and describe your gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hotel_matcher`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add hotel_matcher
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install hotel_matcher
+
+if you want to add in your queue you do you important stuff as a callback by configuration:
+```
+HotelMatcher.configure do |config|
+  config.after_run = ->(result) { do_important_stuff(result) }
+end
+
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+./bin/hotel_matcher "DoubleTree Hilton Amsterdam"
 
 ## Development
 
