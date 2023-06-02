@@ -5,7 +5,10 @@ RSpec.describe HotelMatcher do
     expect(HotelMatcher::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  describe HotelMatcher::Setup do
+    let(:setup)  { HotelMatcher::Setup.new }
+    it "has three providers" do
+      expect(setup.providers.size).to eq 3
+    end
   end
 end
