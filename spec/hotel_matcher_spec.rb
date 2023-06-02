@@ -19,7 +19,7 @@ RSpec.describe HotelMatcher do
     end
   end
 
-  describe HotelMatcher::Provider::Base do
+  describe HotelMatcher::Provider::Holidaycheck do
     let(:provider)  { HotelMatcher::Provider::Holidaycheck.new(1) }
     let(:hotel_name) { "DoubleTree Hilton Amsterdam" }
     let(:result) do
@@ -33,4 +33,17 @@ RSpec.describe HotelMatcher do
       expect(provider.run(hotel_name)).to eq result
     end
   end
+
+  describe HotelMatcher::Provider::Booking do
+    let(:provider)  { HotelMatcher::Provider::Booking.new(1) }
+    let(:hotel_name) { "DoubleTree Hilton Amsterdam" }
+    let(:runner) { provider.run(hotel_name) }
+    it do 
+      expect(runner[:status]).to eq :ok
+      expect(runner[:provider]).to eq "HotelMatcher::Provider::Booking"
+      expect(runner[:link]).not_to be nil
+    end
+  end
+
+
 end
