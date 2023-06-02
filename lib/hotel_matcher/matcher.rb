@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module HotelMatcher
   class Matcher
-
     attr_accessor :hotel_name, :setup
 
     def initialize(hotel_name)
@@ -12,8 +13,6 @@ module HotelMatcher
       results = setup.providers.map do |provider|
         provider.run(hotel_name)
       end
-
-      puts results
 
       HotelMatcher.configuration.after_run&.call(results)
 

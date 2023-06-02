@@ -6,21 +6,21 @@ RSpec.describe HotelMatcher do
   end
 
   describe HotelMatcher::Setup do
-    let(:setup)  { HotelMatcher::Setup.new }
+    let(:setup) { HotelMatcher::Setup.new }
     it "has three providers" do
       expect(setup.providers.size).to eq 3
     end
   end
 
   describe HotelMatcher::Provider::Base do
-    let(:base)  { HotelMatcher::Provider::Base.new(1, 'test', 'test.com') }
-    it do 
+    let(:base) { HotelMatcher::Provider::Base.new(1, "test", "test.com") }
+    it do
       expect { base.run("test") }.to raise_error("should be implemented")
     end
   end
 
   describe HotelMatcher::Provider::Holidaycheck do
-    let(:provider)  { HotelMatcher::Provider::Holidaycheck.new(1) }
+    let(:provider) { HotelMatcher::Provider::Holidaycheck.new(1) }
     let(:hotel_name) { "DoubleTree Hilton Amsterdam" }
     let(:result) do
       {
@@ -29,21 +29,19 @@ RSpec.describe HotelMatcher do
         provider: "HotelMatcher::Provider::Holidaycheck"
       }
     end
-    it do 
+    it do
       expect(provider.run(hotel_name)).to eq result
     end
   end
 
   describe HotelMatcher::Provider::Booking do
-    let(:provider)  { HotelMatcher::Provider::Booking.new(1) }
+    let(:provider) { HotelMatcher::Provider::Booking.new(1) }
     let(:hotel_name) { "DoubleTree Hilton Amsterdam" }
     let(:runner) { provider.run(hotel_name) }
-    it do 
+    it do
       expect(runner[:status]).to eq :ok
       expect(runner[:provider]).to eq "HotelMatcher::Provider::Booking"
       expect(runner[:link]).not_to be nil
     end
   end
-
-
 end

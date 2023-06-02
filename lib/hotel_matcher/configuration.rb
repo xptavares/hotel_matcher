@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HotelMatcher
   class Configuration
     attr_reader :after_run
